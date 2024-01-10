@@ -18,3 +18,7 @@ class details1(models.Model):
     stu_rollno = models.CharField(max_length = 200)
     stu_activity = models.CharField(max_length = 200)
     date = models.DateField()
+
+    def __str__(self):
+        return self.stu_name
+
