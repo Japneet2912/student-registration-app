@@ -1,0 +1,76 @@
+{% extends "basic.html" %}
+
+
+{% block body %}
+
+
+<div class="container-fluid px-0">
+  <img src="https://source.unsplash.com/2600x500/?details" class="d-block w-100" alt="...">
+</div>
+
+
+<h3 class="text-center my-4">Student Details</h3>
+
+<div class="container">
+
+<table class="table table-bordered">
+    
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Class</th>
+        <th scope="col">Roll no</th>
+        <th scope="col">Activity</th>
+        <th scope="col">Delete</th>
+      </tr>
+    
+    <tbody>
+
+        {%for i in students%}
+
+        <tr>
+
+            <td>{{i.stu_name}}</td>
+            <td>{{i.stu_class}}</td>
+            <td>{{i.stu_rollno}}</td>
+            <td>{{i.stu_activity}}</td>
+            {% comment %} <td><button class="btn btn-danger" href = "/delete/{{i.id}}">DELETE</button></a></td> {% endcomment %}
+            <td>
+                {% comment %} <a href="{% url '_record' i.id %}">Edit</a> {% endcomment %}
+                <a href = "/update/{{i.id}}"> <button type="submit" class="btn btn-primary ">Edit</button></a>
+                <a href = "/delete/{{i.id}}"><button type="submit" class="btn btn-danger">Delete</button></a>
+
+            </td>
+            
+            
+
+             
+
+          </tr>
+    
+        {% endfor %}
+        
+    </tbody>
+  </table>
+
+</div>
+
+
+
+ {% endblock body %}
+
+
+ 
+
+ {% block css %}
+ <style>
+
+     body {
+         background-color: #c8e6c9;
+     }
+ 
+    </style>
+{% endblock %}
+
+
+
+
