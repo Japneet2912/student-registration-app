@@ -20,7 +20,7 @@ def index(requests):
         existing_record = details1.objects.filter(stu_rollno = roll).exists()
 
         if existing_record:
-            messages.error(requests,"This record is laready existing")
+            messages.error(requests,"This record is already existing")
             return render(requests,'index.html')    
         else:
         
@@ -64,6 +64,9 @@ def editrecord(requests,id):
     record = get_object_or_404(details1, id=id)  
     if requests.method == "POST":
           record.stu_name = requests.POST.get('name')
+          record.stu_class = requests.POST.get('class')
+          record.stu_activity = requests.POST.get('activity')
+          messages.success(requests, "Record Updated Successfully.")
           record.save()
     
     students = details1.objects.all()
